@@ -17,6 +17,7 @@ end
 --! Services
 
 local HttpService = game:GetService("HttpService")
+local MarketplaceService = game:GetService("MarketplaceService")
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -279,8 +280,8 @@ end)
 
 do
     local Window = Fluent:CreateWindow({
-        Title = string.format("%s <b><i>%s</i></b>", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"), #Status > 0 and Status or "🔥FREE🔥"),
-        SubTitle = "By @ttwiz_z",
+        Title = string.format("%s <b><i>%s</i></b>", string.format(MonthlyLabels[os.date("*t").month], "YazAim"), #Status > 0 and Status or "🔥FREE🔥"),
+        SubTitle = "Made by Yazaki",
         TabWidth = UISettings.TabWidth,
         Size = UDim2.fromOffset(table.unpack(UISettings.Size)),
         Theme = UISettings.Theme,
@@ -288,18 +289,18 @@ do
         MinimizeKey = UISettings.MinimizeKey
     })
 
-    local Tabs = { Aimbot = Window:AddTab({ Title = "Aimbot", Icon = "crosshair" }) }
+    local Tabs = { Aimbot = Window:AddTab({ Title = "YazAim", Icon = "crosshair" }) }
 
     Window:SelectTab(1)
 
     Tabs.Aimbot:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+        Content = "✨YazAim FPS Experience✨\nMade by Yazaki"
     })
 
-    local AimbotSection = Tabs.Aimbot:AddSection("Aimbot")
+    local AimbotSection = Tabs.Aimbot:AddSection("YazAim")
 
-    local AimbotToggle = AimbotSection:AddToggle("Aimbot", { Title = "Aimbot", Description = "Toggles the Aimbot", Default = Configuration.Aimbot })
+    local AimbotToggle = AimbotSection:AddToggle("Aimbot", { Title = "YazAim", Description = "Toggles the Aimbot", Default = Configuration.Aimbot })
     AimbotToggle:OnChanged(function(Value)
         Configuration.Aimbot = Value
         if not IsComputer then
@@ -432,7 +433,7 @@ do
             Configuration.AimPartDropdownValues = {}
             AimPartDropdown:SetValues(Configuration.AimPartDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -540,8 +541,8 @@ do
     Tabs.Bots = Window:AddTab({ Title = "Bots", Icon = "bot" })
 
     Tabs.Bots:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+        Content = "✨YazAim FPS Experience✨\nMade by Yazaki"
     })
 
     local SpinBotSection = Tabs.Bots:AddSection("SpinBot")
@@ -641,7 +642,7 @@ do
             Configuration.SpinPartDropdownValues = {}
             SpinPartDropdown:SetValues(Configuration.SpinPartDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -698,8 +699,8 @@ do
     Tabs.Checks = Window:AddTab({ Title = "Checks", Icon = "list-checks" })
 
     Tabs.Checks:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+        Content = "✨YazAim FPS Experience✨\nMade by Yazaki"
     })
 
     local SimpleChecksSection = Tabs.Checks:AddSection("Simple Checks")
@@ -898,7 +899,7 @@ do
             local Items = #Configuration.IgnoredPlayers
             IgnoredPlayersDropdown:SetValue({})
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = Items == 0 and "Nothing has been deselected!" or Items == 1 and "1 Item has been deselected!" or string.format("%s Items have been deselected!", Items),
                 Buttons = {
                     {
@@ -925,7 +926,7 @@ do
             Configuration.IgnoredPlayersDropdownValues = Cache
             IgnoredPlayersDropdown:SetValues(Configuration.IgnoredPlayersDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -1001,7 +1002,7 @@ do
             local Items = #Configuration.TargetPlayers
             TargetPlayersDropdown:SetValue({})
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = Items == 0 and "Nothing has been deselected!" or Items == 1 and "1 Item has been deselected!" or string.format("%s Items have been deselected!", Items),
                 Buttons = {
                     {
@@ -1028,7 +1029,7 @@ do
             Configuration.TargetPlayersDropdownValues = Cache
             TargetPlayersDropdown:SetValues(Configuration.TargetPlayersDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -1047,16 +1048,16 @@ do
     end)
 
     PremiumChecksSection:AddParagraph({
-        Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Upgrade to unlock all Options✨\nContact @ttwiz_z via Discord to buy"
+        Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+        Content = "✨YazAim Premium✨\nMade by Yazaki"
     })
 
     if DEBUG or getfenv().Drawing and getfenv().Drawing.new then
         Tabs.Visuals = Window:AddTab({ Title = "Visuals", Icon = "box" })
 
         Tabs.Visuals:AddParagraph({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-            Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+            Content = "✨YazAim FPS Experience✨\nMade by Yazaki"
         })
 
         local FoVSection = Tabs.Visuals:AddSection("FoV")
@@ -1297,8 +1298,8 @@ do
     Tabs.Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 
     Tabs.Settings:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+        Content = "✨YazAim FPS Experience✨\nMade by Yazaki"
     })
 
     local UISection = Tabs.Settings:AddSection("UI")
@@ -1402,7 +1403,7 @@ do
             UISettings.RenderingMode = Value
             InterfaceManager:ExportSettings()
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
                 Content = "Changes will take effect after the Restart!",
                 Buttons = {
                     {
@@ -1583,17 +1584,17 @@ do
         ShowWarning = true
     end
 
-    local DiscordWikiSection = Tabs.Settings:AddSection("Discord & Wiki")
+    local DiscordWikiSection = Tabs.Settings:AddSection("YazAim Links")
 
     if getfenv().setclipboard then
         DiscordWikiSection:AddButton({
-            Title = "Copy Invite Link",
+            Title = "Copy YazAim Link",
             Description = "Paste it into the Browser Tab",
             Callback = function()
                 getfenv().setclipboard("https://twix.cyou/pix")
                 Window:Dialog({
-                    Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                    Content = "Invite Link has been copied to the Clipboard!",
+                    Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
+                    Content = "YazAim link copied to clipboard!",
                     Buttons = {
                         {
                             Title = "Confirm"
@@ -1604,13 +1605,13 @@ do
         })
 
         DiscordWikiSection:AddButton({
-            Title = "Copy Wiki Link",
+            Title = "Copy YazAim Wiki",
             Description = "Paste it into the Browser Tab",
             Callback = function()
                 getfenv().setclipboard("https://moderka.org/Open-Aimbot")
                 Window:Dialog({
-                    Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                    Content = "Wiki Link has been copied to the Clipboard!",
+                    Title = string.format(MonthlyLabels[os.date("*t").month], "YazAim"),
+                    Content = "YazAim wiki link copied to clipboard!",
                     Buttons = {
                         {
                             Title = "Confirm"
@@ -1621,12 +1622,12 @@ do
         })
     else
         DiscordWikiSection:AddParagraph({
-            Title = "https://twix.cyou/pix",
+            Title = "YazAim Link",
             Content = "Paste it into the Browser Tab"
         })
 
         DiscordWikiSection:AddParagraph({
-            Title = "https://moderka.org/Open-Aimbot",
+            Title = "YazAim Wiki",
             Content = "Paste it into the Browser Tab"
         })
     end
@@ -1645,7 +1646,7 @@ do
         elseif ShowWarning then
             Window:Dialog({
                 Title = "Warning",
-                Content = string.format("Your Software does not support all the Features of %s 🔥FREE🔥!", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+                Content = string.format("Your Software does not support all the Features of %s 🔥FREE🔥!", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
                 Buttons = {
                     {
                         Title = "Confirm"
@@ -1654,8 +1655,8 @@ do
             })
         else
             Window:Dialog({
-                Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-                Content = "✨Upgrade to unlock all Options✨ – Contact @ttwiz_z via Discord to buy",
+                Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
+                Content = "✨YazAim Premium✨ – Made by Yazaki",
                 Buttons = {
                     {
                         Title = "Confirm"
@@ -1672,15 +1673,24 @@ end
 local function Notify(Message)
     if Fluent and typeof(Message) == "string" then
         Fluent:Notify({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "YazAim")),
             Content = Message,
-            SubContent = "By @ttwiz_z",
+            SubContent = "Made by Yazaki",
             Duration = 1.5
         })
     end
 end
 
-Notify("✨Upgrade to unlock all Options✨")
+local function GetCurrentGameName()
+    local Success, ProductInfo = pcall(MarketplaceService.GetProductInfo, MarketplaceService, game.PlaceId)
+    if Success and typeof(ProductInfo) == "table" and typeof(ProductInfo.Name) == "string" and #ProductInfo.Name > 0 then
+        return ProductInfo.Name
+    end
+    return game.Name
+end
+
+Notify("Thank you for playing YazAim!")
+Notify(string.format("Game detected: %s (PlaceId: %s)", GetCurrentGameName(), tostring(game.PlaceId)))
 
 
 --! Fields Handler
